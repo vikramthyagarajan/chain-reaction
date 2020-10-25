@@ -4,6 +4,29 @@
     justify-content: center;
     height: 100%;
     width: 100%;
+
+    .block {
+        &.double {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 5px
+        }
+
+        &.triple {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-template-rows: auto auto;
+            column-gap: 5px;
+            row-gap: 2px;
+
+            .center {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                grid-column: span 2;
+            }
+        }
+    }
 }
 .single-block {
     background-color: yellow;

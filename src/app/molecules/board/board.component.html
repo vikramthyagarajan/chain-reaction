@@ -1,7 +1,7 @@
 <div class="board-view">
     <div *ngFor="let row of board" class="rows">
         <div *ngFor="let item of row" class="blocks">
-            <app-block></app-block>
+            <app-block [block]="item"></app-block>
         </div>
     </div>
 </div>

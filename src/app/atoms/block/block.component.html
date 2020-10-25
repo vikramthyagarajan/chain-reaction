@@ -1,3 +1,22 @@
 <div class="block-wrapper">
-    <div class="single-block"></div>
+    <div *ngIf="block.count === 1">
+        <div class="block single">
+            <div class="single-block"></div>
+        </div>
+    </div>
+    <div *ngIf="block.count === 2">
+        <div class="block double">
+            <div class="single-block"></div>
+            <div class="single-block"></div>
+        </div>
+    </div>
+    <div *ngIf="block.count === 3">
+        <div class="block triple">
+            <div class="single-block"></div>
+            <div class="single-block"></div>
+            <div class="center">
+                <div class="single-block"></div>
+            </div>
+        </div>
+    </div>
 </div>
