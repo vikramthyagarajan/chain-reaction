@@ -1,1 +1,7 @@
-<p>board works!</p>
+<div class="board-view">
+    <div *ngFor="let row of board" class="rows">
+        <div *ngFor="let item of row" class="blocks">
+            <app-block></app-block>
+        </div>
+    </div>
+</div>

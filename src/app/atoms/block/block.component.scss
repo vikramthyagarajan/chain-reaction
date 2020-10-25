@@ -1,0 +1,13 @@
+.block-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+.single-block {
+    background-color: yellow;
+    width: 10px;
+    border-radius: 50%;
+    height: 10px;
+}

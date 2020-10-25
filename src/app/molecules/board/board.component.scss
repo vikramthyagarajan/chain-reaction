@@ -1,0 +1,13 @@
+.board-view {
+}
+
+.rows {
+    display: flex;
+    flex-direction: row;
+    
+    .blocks {
+        border: 1px solid blue;
+        width: 40px;
+        height: 40px;
+    }
+}

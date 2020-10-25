@@ -14,5 +14,12 @@
         flex-grow: 0;
         padding: 20px;
         background: green;
+
+        .board-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
     }
 }
