@@ -1,37 +1,27 @@
+
 {
-  "name": "chain-reaction",
+  "name": "chain-reaction-frontend",
   "version": "0.0.0",
   "scripts": {
-    "ng": "nx",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
-    "lint": "nx workspace-lint && ng lint",
-    "e2e": "ng e2e",
-    "nx": "nx",
-    "affected:apps": "nx affected:apps",
-    "affected:libs": "nx affected:libs",
-    "affected:build": "nx affected:build",
-    "affected:e2e": "nx affected:e2e",
-    "affected:test": "nx affected:test",
-    "affected:lint": "nx affected:lint",
-    "affected:dep-graph": "nx affected:dep-graph",
-    "affected": "nx affected",
-    "format": "nx format:write",
-    "format:write": "nx format:write",
-    "format:check": "nx format:check",
-    "update": "ng update @nrwl/workspace",
-    "update:check": "ng update",
-    "dep-graph": "nx dep-graph",
-    "workspace-schematic": "nx workspace-schematic",
-    "help": "nx help",
-    "postinstall": "node ./decorate-angular-cli.js"
+    "test": "ng test"
   },
   "private": true,
-  "workspaces": [
-    "apps/*"
-  ],
   "dependencies": {
+    "@angular/animations": "~10.2.0",
+    "@angular/cdk": "^10.2.5",
+    "@angular/common": "~10.2.0",
+    "@angular/compiler": "~10.2.0",
+    "@angular/core": "~10.2.0",
+    "@angular/forms": "~10.2.0",
+    "@angular/material": "^10.2.5",
+    "@angular/platform-browser": "~10.2.0",
+    "@angular/platform-browser-dynamic": "~10.2.0",
+    "@angular/router": "~10.2.0",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.0.0",
+    "zone.js": "~0.10.2",
     "@nrwl/angular": "10.3.2"
   },
   "devDependencies": {
