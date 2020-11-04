@@ -15,14 +15,10 @@ import { BlockComponent } from './atoms/block/block.component';
     HomeComponent,
     GameComponent,
     BoardComponent,
-    BlockComponent
+    BlockComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
