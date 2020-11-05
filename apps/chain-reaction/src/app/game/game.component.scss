@@ -1,25 +1,25 @@
 .container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  .panel {
+    flex: 1;
     height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+  }
 
-    .panel {
-        flex: 1;
-        height: 100%;
+  .game-container {
+    flex-basis: 50%;
+    flex-grow: 0;
+    padding: 20px;
+    background: green;
+
+    .board-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
     }
-
-    .game-container {
-        flex-basis: 50%;
-        flex-grow: 0;
-        padding: 20px;
-        background: green;
-
-        .board-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-        }
-    }
+  }
 }
