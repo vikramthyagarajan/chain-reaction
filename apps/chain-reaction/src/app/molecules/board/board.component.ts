@@ -1,6 +1,7 @@
-import { ClassGetter } from '@angular/compiler/src/output/output_ast';
-import { newArray } from '@angular/compiler/src/util';
+import { IcuPlaceholder } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
+import { IpcNetConnectOpts } from 'net';
+import { IBlock, IPlayer } from './board.types';
 
 @Component({
   selector: 'app-board',
@@ -8,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent implements OnInit {
-  dimensions = [16, 16];
-  currentPlayer = 0;
+  dimensions = [8, 8];
+  noOfPlayers = 2;
+  colors = ['yellow', 'black', 'orange', 'red'];
+  players: IPlayer[] | null = null;
+  currentPlayer: IPlayer;
   board: IBlock[][] = new Array(this.dimensions[0]).fill(0).map((a, colNo) =>
     new Array(this.dimensions[1]).fill(0).map((b, rowNo) => {
       let maxCount = 3;
@@ -25,46 +29,70 @@ export class BoardComponent implements OnInit {
         maxCount,
         rowNo,
         colNo,
+        player: null,
       };
     })
   );
 
   constructor() {}
 
-  addCount(rowNo: number, colNo: number): void {
-    const currentItem = this.board[colNo][rowNo];
+  addCount(player: IPlayer, rowNo: number, colNo: number): void {
+    let currentItem = this.board[colNo][rowNo];
+    currentItem.player = player;
+    console.log('player is', JSON.stringify(currentItem), player);
     if (currentItem.count < currentItem.maxCount) {
       currentItem.count++;
     } else {
+      currentItem.player = null;
       currentItem.count = 0;
       if (this.board[colNo + 1] && this.board[colNo + 1][rowNo]) {
-        this.addCount(rowNo, colNo + 1);
+        this.addCount(player, rowNo, colNo + 1);
       }
       if (this.board[colNo - 1] && this.board[colNo - 1][rowNo]) {
-        this.addCount(rowNo, colNo - 1);
+        this.addCount(player, rowNo, colNo - 1);
       }
       if (this.board[colNo][rowNo - 1]) {
-        this.addCount(rowNo - 1, colNo);
+        this.addCount(player, rowNo - 1, colNo);
       }
       if (this.board[colNo][rowNo + 1]) {
-        this.addCount(rowNo + 1, colNo);
+        this.addCount(player, rowNo + 1, colNo);
       }
     }
   }
 
-  playMove(playerNo: number, block: IBlock): void {
-    this.addCount(block.rowNo, block.colNo);
+  nextPlayer(currentPlayer: IPlayer): IPlayer {
+    const index = this.players.indexOf(currentPlayer);
+    console.log('ind', index, this.players);
+    if (this.players[index + 1]) {
+      return this.players[index + 1];
+    } else {
+      return this.players[0];
+    }
+  }
+
+  playMove(currentPlayer: IPlayer, block: IBlock): void {
+    // Cannot play a block belonging to another player
+    console.log('block', block.player, currentPlayer);
+    if (block.player && block.player.playerNo !== currentPlayer.playerNo) {
+      return;
+    }
+    this.addCount(currentPlayer, block.rowNo, block.colNo);
+    console.log('old player', this.currentPlayer);
+    this.currentPlayer = this.nextPlayer(currentPlayer);
+    console.log('new player', this.currentPlayer);
 
     return;
   }
 
-  ngOnInit(): void {}
-}
-
-export interface IBlock {
-  color: string;
-  count: number;
-  maxCount: number;
-  rowNo: number;
-  colNo: number;
+  ngOnInit(): void {
+    this.players = [];
+    for (let i = 0; i < this.noOfPlayers; i++) {
+      this.players.push({
+        playerNo: i + 1,
+        name: 'Player ' + (i + 1),
+        color: this.colors[i],
+      });
+    }
+    this.currentPlayer = this.players[0];
+  }
 }

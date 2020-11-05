@@ -1,7 +1,7 @@
 <div class="block-wrapper">
     <div *ngIf="block.count === 1">
         <div class="block single">
-            <div class="single-block"></div>
+            <div class="single-block" [style.background-color]="block.player.color"></div>
         </div>
     </div>
     <div *ngIf="block.count === 2">

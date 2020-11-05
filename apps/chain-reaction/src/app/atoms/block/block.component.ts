@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { IBlock, IPlayer } from '../../molecules/board/board.types';
 import { Block } from './block.types';
 
 @Component({
@@ -7,7 +8,7 @@ import { Block } from './block.types';
   styleUrls: ['./block.component.scss'],
 })
 export class BlockComponent implements OnInit {
-  @Input() block: Block;
+  @Input() block: IBlock;
 
   constructor() {}
 
