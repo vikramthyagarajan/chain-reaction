@@ -1,5 +1,6 @@
 import { IcuPlaceholder } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
+import { appendFileSync } from 'fs';
 import { IpcNetConnectOpts } from 'net';
 import { IBlock, IPlayer } from './board.types';
 
@@ -68,6 +69,25 @@ export class BoardComponent implements OnInit {
     } else {
       return this.players[0];
     }
+  }
+
+  checkWinCondition(): boolean {
+    const playerCounts: any = {};
+    this.players.forEach((player) => {
+      playerCounts[player.playerNo] = {
+        count: 0,
+      };
+    });
+    for (let colNo = 0; colNo < this.board.length; colNo++) {
+      for (let rowNo = 0; rowNo < this.board[colNo].length; rowNo++) {
+        const block = this.board[colNo][rowNo];
+        if (block.player) {
+          playerCounts[block.player.playerNo].count++;
+        }
+      }
+    }
+    // if(playerCounts[this.currentPlayer.playerNo] > 0 && player)
+    return false;
   }
 
   playMove(currentPlayer: IPlayer, block: IBlock): void {
