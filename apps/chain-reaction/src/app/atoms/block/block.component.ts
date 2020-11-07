@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IBlock, IPlayer } from '../../molecules/board/board.types';
+import { IBlock } from '../../state/game-state/game-state.types';
 import { Block } from './block.types';
 
 @Component({

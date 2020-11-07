@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
-import { IBlock, IPlayer } from '../../molecules/board/board.types';
-import { IGameDefinition, IGameState } from './game-state.types';
+import {
+  IGameDefinition,
+  IGameState,
+  IBlock,
+  IPlayer,
+} from './game-state.types';
 
 @Injectable({
   providedIn: 'root',
