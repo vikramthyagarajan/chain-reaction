@@ -8,6 +8,8 @@ import { GameComponent } from './pages/game/game.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BoardComponent } from './molecules/board/board.component';
 import { BlockComponent } from './atoms/block/block.component';
+import { PlayerCardComponent } from './molecules/player-card/player-card.component';
+import { LeftPanelComponent } from './molecules/left-panel/left-panel.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { BlockComponent } from './atoms/block/block.component';
     GameComponent,
     BoardComponent,
     BlockComponent,
+    PlayerCardComponent,
+    LeftPanelComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
