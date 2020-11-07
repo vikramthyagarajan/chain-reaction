@@ -1,7 +1,4 @@
-import { IcuPlaceholder } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
-import { appendFileSync } from 'fs';
-import { IpcNetConnectOpts } from 'net';
 import { IBlock, IPlayer } from './board.types';
 
 @Component({
