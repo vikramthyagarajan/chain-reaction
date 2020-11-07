@@ -70,9 +70,7 @@ export class GameStateService {
       return;
     }
     this.addCount(currentPlayer, block.rowNo, block.colNo);
-    console.log('old player', this.state.currentPlayer);
     this.state.currentPlayer = this.nextPlayer(currentPlayer);
-    console.log('new player', this.state.currentPlayer);
 
     return;
   }
@@ -80,7 +78,7 @@ export class GameStateService {
   private addCount(player: IPlayer, rowNo: number, colNo: number): void {
     const currentItem = this.state.board[colNo][rowNo];
     currentItem.player = player;
-    console.log('player is', JSON.stringify(currentItem), player);
+    console.log('player is', currentItem, player);
     if (currentItem.count < currentItem.maxCount) {
       currentItem.count++;
     } else {

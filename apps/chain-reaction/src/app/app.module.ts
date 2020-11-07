@@ -10,6 +10,7 @@ import { BoardComponent } from './molecules/board/board.component';
 import { BlockComponent } from './atoms/block/block.component';
 import { PlayerCardComponent } from './atoms/player-card/player-card.component';
 import { LeftPanelComponent } from './molecules/left-panel/left-panel.component';
+import { MarkerComponent } from './atoms/marker/marker.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { LeftPanelComponent } from './molecules/left-panel/left-panel.component'
     BlockComponent,
     PlayerCardComponent,
     LeftPanelComponent,
+    MarkerComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
