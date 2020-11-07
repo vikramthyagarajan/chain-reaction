@@ -1,7 +1,7 @@
 <div class="board-view">
-    <div *ngFor="let column of board; index as colNo" class="rows">
+    <div *ngFor="let column of gameState.board; index as colNo" class="rows">
         <div *ngFor="let item of column; index as rowNo" class="blocks">
-            <app-block (click)="playMove(currentPlayer, item)" [block]="item"></app-block>
+            <app-block (click)="clickBlock(item)" [block]="item"></app-block>
         </div>
     </div>
 </div>
