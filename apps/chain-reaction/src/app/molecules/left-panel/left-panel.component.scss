@@ -1,0 +1,44 @@
+.left-panel {
+  padding: 10px 20px;
+
+  .heading {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+}
+.player-list {
+  .player-card {
+    padding: 15px;
+    margin: 0 7px;
+    border: 0;
+    background: gray;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: white;
+    position: relative;
+    box-shadow: 1px 3px 1px 1px rgba(0, 0, 0, 0.15);
+
+    &.active {
+      transform: scale(1.1);
+    }
+
+    .name-tag {
+      font-size: 16px;
+    }
+
+    .marker {
+      position: absolute;
+      right: 10px;
+      top: 15px;
+      height: 15px;
+      width: 15px;
+      border-radius: 50%;
+    }
+
+    .location {
+      font-size: 12px;
+    }
+  }
+}

@@ -1,1 +1,11 @@
-<p>left-panel works!</p>
+
+<div class="left-panel">
+    <div class="heading">Players</div>
+    <div class="player-list">
+        <div *ngFor="let player of gameState.players" class="player-card" [class.active]="gameState.currentPlayer === player">
+            <div class="name-tag">{{player.name}}</div>
+            <div class="marker" [style.background-color]="player.color"></div>
+            <div class="location">Mumbai</div>
+        </div>
+    </div>
+</div>
